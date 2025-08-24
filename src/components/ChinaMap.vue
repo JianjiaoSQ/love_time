@@ -31,7 +31,6 @@ const provinceTips = {
 }
 
 const option = ref({
-  backgroundColor: '#fff',
   tooltip: {
     trigger: 'item',
     formatter: function(params) {
@@ -56,8 +55,8 @@ const option = ref({
       label: { show: true, position: 'center' },
       emphasis: { label: { show: true } },
       data: [],
-      layoutCenter: ['60%', '60%'], // 地图中心在容器中心
-      layoutSize: '220%' // 放大到原来的1.8倍，可根据需要调整
+      layoutCenter: ['45%', '35%'], // 地图中心点
+      layoutSize: '350%' // 放大到原来的1.8倍，可根据需要调整
     }
   ]
 })
@@ -80,19 +79,25 @@ function onMapClick(params) {
 
 <style scoped>
 .map-module {
-  width: 600px;
+  width: 800px;
   max-width: 96vw;
   height: 420px;
   margin: 32px auto 24px auto;
-  background: transparent;
+  background: rgba(255,255,255,0.18);
   border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  box-shadow: 0 6px 32px 0 rgba(255,182,185,0.13), 0 2px 12px 0 #e0e7ef;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
   border: none;
   z-index: 10;
+  backdrop-filter: blur(10px) saturate(1.2);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.map-module:hover {
+  box-shadow: 0 12px 36px 0 rgba(255,182,185,0.18), 0 4px 18px 0 #e0e7ef;
+  background: rgba(255,255,255,0.28);
 }
 .china-map {
   width: 100%;
